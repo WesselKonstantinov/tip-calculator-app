@@ -117,3 +117,25 @@ textarea:not([rows]) {
   --font-family-primary: "Space Mono", monospace;
   --font-weight-bold: 700;
 }
+
+/* || Global styles */
+body {
+  background-color: var(--color-grayish-cyan-200);
+  color: var(--text-color);
+  font-family: var(--font-family-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  line-height: normal;
+}
+
+.sr-only {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
