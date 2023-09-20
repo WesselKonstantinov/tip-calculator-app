@@ -89,3 +89,31 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* || Custom properties */
+:root {
+  --color-cyan-100: hsl(172 67% 45%);
+  --color-cyan-200: hsl(183 100% 15%);
+  --color-grayish-cyan-100: hsl(189 41% 97%);
+  --color-grayish-cyan-200: hsl(185 41% 84%);
+  --color-grayish-cyan-300: hsl(184 14% 56%);
+  --color-grayish-cyan-400: hsl(186 14% 43%);
+  --color-white: hsl(0 0% 100%);
+  --font-family-primary: "Space Mono", monospace;
+  --font-weight-bold: 700;
+}
