@@ -120,6 +120,8 @@ textarea:not([rows]) {
 
 /* || Global styles */
 body {
+  display: grid;
+  place-content: center;
   background-color: var(--color-grayish-cyan-200);
   color: var(--text-color);
   font-family: var(--font-family-primary);
@@ -138,4 +140,20 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* || App container styles */
+.app {
+  margin-top: 3.125rem;
+  margin-inline: auto;
+  max-width: 35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5625rem;
+}
+
+.app__logo {
+  width: 5.4375rem;
+  height: 3.375rem;
 }
