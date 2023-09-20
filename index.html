@@ -1,44 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <img
+          src="./images/logo.svg"
+          alt="Splitter"
+          width="87"
+          height="54"
+          class="app__logo"
+        />
+      </header>
+      <main class="app__body">
+        <h1 class="sr-only">Tip calculator app</h1>
+        <div class="calculator">
+          <form novalidate class="calculator__form">
+            <h2 class="sr-only">Enter tip information</h2>
+            <div class="calculator__form-control">
+              <label for="bill" class="calculator__form-label">Bill</label>
+              <input
+                type="number"
+                name="bill"
+                id="bill"
+                min="0"
+                placeholder="0"
+                class="calculator__form-input"
+              />
+            </div>
+            <fieldset class="calculator__form-group">
+              <legend class="calculator__form-label">Select Tip %</legend>
+              <div class="calculator__form-button">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip-rate-5"
+                  value="5"
+                  class="calculator__form-radio"
+                />
+                <label for="tip-rate-5" class="calculator__form-label">
+                  5%
+                </label>
+              </div>
+              <div class="calculator__form-button">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip-rate-10"
+                  value="10"
+                  class="calculator__form-radio"
+                />
+                <label for="tip-rate-10" class="calculator__form-label">
+                  10%
+                </label>
+              </div>
+              <div class="calculator__form-button">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip-rate-15"
+                  value="15"
+                  class="calculator__form-radio"
+                />
+                <label for="tip-rate-15" class="calculator__form-label">
+                  15%
+                </label>
+              </div>
+              <div class="calculator__form-button">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip-rate-25"
+                  value="25"
+                  class="calculator__form-radio"
+                />
+                <label for="tip-rate-25" class="calculator__form-label">
+                  25%
+                </label>
+              </div>
+              <div class="calculator__form-button">
+                <input
+                  type="radio"
+                  name="tip"
+                  id="tip-rate-50"
+                  value="50"
+                  class="calculator__form-radio"
+                />
+                <label for="tip-rate-50" class="calculator__form-label">
+                  50%
+                </label>
+              </div>
+              <div class="calculator__form-custom">
+                <input
+                  type="number"
+                  name="tip"
+                  id="tip-rate-custom"
+                  class="calculator__form-input"
+                />
+                <label for="tip-rate-custom" class="calculator__form-label">
+                  Custom
+                </label>
+              </div>
+            </fieldset>
+            <div>
+              <label for="people" class="calculator__form-label">
+                Number of People
+              </label>
+              <input
+                type="number"
+                name="people"
+                id="people"
+                min="1"
+                placeholder="0"
+                aria-describedby="number-error"
+                class="calculator__form-input"
+              />
+              <div
+                aria-live="polite"
+                id="number-error"
+                class="calculator__form-error"
+              ></div>
+            </div>
+          </form>
+          <div class="calculator__result-section">
+            <h2 class="sr-only">Result</h2>
+            <dl class="calculator__result">
+              <div class="calculator__result-item">
+                <dt class="calculator__result-label">
+                  Tip Amount
+                  <span class="calculator__result-label-part">
+                    <span aria-hidden="true">/</span>
+                    <span class="sr-only">per</span>
+                    person
+                  </span>
+                </dt>
+                <dd class="calculator__result-price">$0.00</dd>
+              </div>
+              <div class="calculator__result-item">
+                <dt class="calculator__result-label">
+                  Total
+                  <span class="calculator__result-label-part">
+                    <span aria-hidden="true">/</span>
+                    <span class="sr-only">per</span>
+                    person
+                  </span>
+                </dt>
+                <dd class="calculator__result-price">$0.00</dd>
+              </div>
+            </dl>
+            <button type="button">Reset</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
