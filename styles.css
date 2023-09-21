@@ -197,6 +197,7 @@ body {
 
 .calculator__form-label {
   display: block;
+  padding: 0;
   color: var(--color-grayish-cyan-400);
   font-size: 1rem;
   line-height: inherit;
@@ -215,6 +216,10 @@ body {
   text-align: right;
 }
 
+.calculator__form-input--custom {
+  margin-top: 0;
+}
+
 .calculator__form-input--bill {
   background-image: url("./images/icon-dollar.svg");
   background-position-x: 1.20625rem;
@@ -230,6 +235,46 @@ body {
 .calculator__form-group {
   padding: 0;
   border: none;
+}
+
+.calculator__form-button-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 3rem;
+  gap: 1rem 1.0375rem;
+  margin-top: 1rem;
+}
+
+.calculator__form-button {
+  display: grid;
+  grid-template-areas: "button";
+}
+
+.calculator__form-radio {
+  grid-area: button;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  background-color: var(--color-cyan-200);
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out 0s;
+}
+
+.calculator__form-radio:checked {
+  background-color: var(--color-cyan-100);
+}
+
+.calculator__form-label--radio {
+  grid-area: button;
+  place-self: center;
+  color: var(--color-white);
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.calculator__form-radio:checked + .calculator__form-label--radio {
+  color: var(--color-cyan-200);
 }
 
 .calculator__result-section {
