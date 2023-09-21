@@ -22,6 +22,7 @@ h3,
 h4,
 p,
 figure,
+fieldset,
 blockquote,
 dl,
 dd {
@@ -85,6 +86,18 @@ textarea:not([rows]) {
   min-height: 10em;
 }
 
+/* Hide arrows/spinners from input type number on Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide arrows/spinners from input type number on Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 5ex;
@@ -146,8 +159,11 @@ body {
   max-width: 35rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 2.5625rem;
+}
+
+.app__header {
+  align-self: center;
 }
 
 .app__logo {
@@ -168,25 +184,50 @@ body {
 }
 
 .calculator__form {
-  padding-inline: 0.375rem;
+  padding-inline: 0.5rem;
 }
 
 .calculator__form > * + * {
   margin-top: 2rem;
 }
 
+.calculator__form-control:nth-of-type(1) {
+  margin-top: 0;
+}
+
 .calculator__form-label {
+  display: block;
   color: var(--color-grayish-cyan-400);
   font-size: 1rem;
+  line-height: inherit;
 }
 
 .calculator__form-input {
   width: 100%;
+  padding: 0.375rem 1.09375rem;
+  margin-top: 0.375rem;
+  background-color: var(--color-grayish-cyan-100);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  border: none;
+  border-radius: 0.3125rem;
+  color: var(--color-cyan-200);
   text-align: right;
 }
 
+.calculator__form-input--bill {
+  background-image: url("./images/icon-dollar.svg");
+  background-position-x: 1.20625rem;
+  background-size: 0.6875rem 1.0625rem;
+}
+
+.calculator__form-input--people {
+  background-image: url("./images/icon-person.svg");
+  background-position-x: 1.0625rem;
+  background-size: 0.8125rem 1rem;
+}
+
 .calculator__form-group {
-  margin-inline: 0;
   padding: 0;
   border: none;
 }
