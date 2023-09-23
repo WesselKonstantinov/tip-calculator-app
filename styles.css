@@ -342,6 +342,14 @@ body {
   text-transform: uppercase;
 }
 
+.calculator__reset:disabled {
+  opacity: 0.35;
+}
+
+.calculator__reset:enabled {
+  cursor: pointer;
+}
+
 @media (min-width: 60rem) {
   .app {
     max-width: 57.5rem;
