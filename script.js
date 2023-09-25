@@ -22,7 +22,16 @@ form.addEventListener("change", (e) => {
   }
 
   if (e.target.name === "custom") {
-    radioButtons.forEach((radioButton) => (radioButton.checked = false));
+    const sameValue = Array.from(radioButtons).find(
+      (radioButton) => radioButton.value === e.target.value
+    );
+    if (sameValue) {
+      form.custom.value = "";
+      sameValue.checked = true;
+      sameValue.focus();
+    } else {
+      radioButtons.forEach((radioButton) => (radioButton.checked = false));
+    }
   } else if (e.target.name === "tip") {
     form.custom.value = "";
   }
