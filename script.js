@@ -10,6 +10,29 @@ const getTipAmountPerPerson = (total, bill, people) => {
 
 const getTipRate = (percentage) => percentage / 100 + 1;
 
+const setInputStatus = (field, errorMessage = "") => {
+  const formError = field.parentElement.querySelector(".js-error");
+
+  if (errorMessage) {
+    formError.innerHTML = `<p class="calculator__form-error-message">${errorMessage}</p>`;
+    field.classList.add("calculator__form-input--error");
+    field.setAttribute("aria-invalid", "true");
+  } else {
+    formError.innerHTML = "";
+    field.classList.remove("calculator__form-input--error");
+    field.setAttribute("aria-invalid", "false");
+  }
+};
+
+const validateInput = (field) => {
+  const isZeroOrLess = field.value <= 0;
+  if (isZeroOrLess) {
+    setInputStatus(field, "Can't be zero");
+  } else {
+    setInputStatus(field);
+  }
+};
+
 const form = document.querySelector(".js-form");
 const radioButtons = document.querySelectorAll(".js-radio");
 const tipAmount = document.querySelector(".js-tip-amount");
@@ -30,20 +53,23 @@ form.addEventListener("change", (e) => {
       sameValue.checked = true;
       sameValue.focus();
     } else {
-      radioButtons.forEach((radioButton) => (radioButton.checked = false));
+      radioButtons.forEach((radioButton) => {
+        radioButton.checked = false;
+      });
     }
   } else if (e.target.name === "tip") {
     form.custom.value = "";
+  }
+
+  if (e.target.name === "people") {
+    validateInput(e.target);
   }
 
   const bill = Number.parseFloat(form.bill.value);
 
   const tip =
     Number.parseFloat(form.custom.value) || Number.parseInt(form.tip.value);
-
   const tipRate = getTipRate(tip);
-  console.log(tipRate);
-
   const people = Number.parseInt(form.people.value);
   const totalPerPerson = getTotalPerPerson(bill, people, tipRate);
 
@@ -53,21 +79,21 @@ form.addEventListener("change", (e) => {
   }
 });
 
-const resetCalculator = () => {
+resetButton.addEventListener("click", () => {
   Array.from(form.elements)
-    .filter((element) => (element.tagName = "INPUT"))
+    .filter((element) => element.tagName === "INPUT")
     .forEach((input) => {
       if (input.type === "radio") {
         input.checked = false;
       } else if (input.type === "number") {
         input.value = "";
+        if (input.name === "people") {
+          setInputStatus(input);
+        }
       }
     });
 
   total.textContent = "0.00";
   tipAmount.textContent = "0.00";
   resetButton.disabled = true;
-};
-
-resetButton.addEventListener("click", resetCalculator);
-// Error message to show: <p class="calculator__form-error-message">Can't be zero</p>
+});
