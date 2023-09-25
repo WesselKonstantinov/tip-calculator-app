@@ -55,7 +55,7 @@
                     name="tip"
                     id="tip-rate-5"
                     value="5"
-                    class="calculator__form-radio"
+                    class="calculator__form-radio js-radio"
                   />
                   <label
                     for="tip-rate-5"
@@ -70,7 +70,7 @@
                     name="tip"
                     id="tip-rate-10"
                     value="10"
-                    class="calculator__form-radio"
+                    class="calculator__form-radio js-radio"
                   />
                   <label
                     for="tip-rate-10"
@@ -85,7 +85,7 @@
                     name="tip"
                     id="tip-rate-15"
                     value="15"
-                    class="calculator__form-radio"
+                    class="calculator__form-radio js-radio"
                   />
                   <label
                     for="tip-rate-15"
@@ -100,7 +100,7 @@
                     name="tip"
                     id="tip-rate-25"
                     value="25"
-                    class="calculator__form-radio"
+                    class="calculator__form-radio js-radio"
                   />
                   <label
                     for="tip-rate-25"
@@ -115,7 +115,7 @@
                     name="tip"
                     id="tip-rate-50"
                     value="50"
-                    class="calculator__form-radio"
+                    class="calculator__form-radio js-radio"
                   />
                   <label
                     for="tip-rate-50"
@@ -168,7 +168,9 @@
                     person
                   </span>
                 </dt>
-                <dd class="calculator__result-price">$0.00</dd>
+                <dd class="calculator__result-price">
+                  $<span class="js-tip-amount">0.00</span>
+                </dd>
               </div>
               <div class="calculator__result-item">
                 <dt class="calculator__result-label">
@@ -179,7 +181,9 @@
                     person
                   </span>
                 </dt>
-                <dd class="calculator__result-price">$0.00</dd>
+                <dd class="calculator__result-price">
+                  $<span class="js-total">0.00</span>
+                </dd>
               </div>
             </dl>
             <button
