@@ -152,14 +152,18 @@
               <div
                 aria-live="polite"
                 id="number-error"
-                class="calculator__form-error"
+                class="calculator__form-error js-error"
               ></div>
             </div>
           </form>
           <div class="calculator__result-section">
             <h2 class="sr-only">Result</h2>
             <dl class="calculator__result">
-              <div class="calculator__result-item">
+              <div
+                aria-live="polite"
+                aria-atomic="true"
+                class="calculator__result-item"
+              >
                 <dt class="calculator__result-label">
                   Tip Amount
                   <span class="calculator__result-label-part">
@@ -172,7 +176,11 @@
                   $<span class="js-tip-amount">0.00</span>
                 </dd>
               </div>
-              <div class="calculator__result-item">
+              <div
+                aria-live="polite"
+                aria-atomic="true"
+                class="calculator__result-item"
+              >
                 <dt class="calculator__result-label">
                   Total
                   <span class="calculator__result-label-part">
