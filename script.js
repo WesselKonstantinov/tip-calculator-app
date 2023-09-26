@@ -72,10 +72,15 @@ form.addEventListener("change", (e) => {
   const tipRate = getTipRate(tip);
   const people = Number.parseInt(form.people.value);
   const totalPerPerson = getTotalPerPerson(bill, people, tipRate);
+  const tipAmountPerPerson = getTipAmountPerPerson(
+    totalPerPerson,
+    bill,
+    people
+  );
 
   if (bill && tipRate && people) {
-    total.textContent = totalPerPerson;
-    tipAmount.textContent = getTipAmountPerPerson(totalPerPerson, bill, people);
+    total.textContent = `$${totalPerPerson}`;
+    tipAmount.textContent = `$${tipAmountPerPerson}`;
   }
 });
 
@@ -93,7 +98,7 @@ resetButton.addEventListener("click", () => {
       }
     });
 
-  total.textContent = "0.00";
-  tipAmount.textContent = "0.00";
+  tipAmount.textContent = "$0.00";
+  total.textContent = "$0.00";
   resetButton.disabled = true;
 });
